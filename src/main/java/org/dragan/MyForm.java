@@ -26,14 +26,7 @@ public class MyForm extends JFrame {
             var listeFrame = MyList.getInstance();
             if (listeFrame.isVisible()) {
                 listeFrame.toFront();
-                return;
             }
-            listeFrame.setContentPane(listeFrame.getRootComponent());
-            listeFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            listeFrame.setLocationRelativeTo(null);
-            listeFrame.setSize(new Dimension(800, 600));
-            listeFrame.setResizable(false);
-            listeFrame.setVisible(true);
         });
 
         // External Class
