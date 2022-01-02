@@ -10,7 +10,6 @@ public class MyList extends JFrame {
     private MyDatabase mdb;
     private DefaultPersonneTableModel model;
     private JPanel mainPanel;
-    private JTable personneTable;
     private Graphics2D graph;
 
     {
@@ -70,7 +69,7 @@ public class MyList extends JFrame {
                         null
                 )
         );
-        personneTable = new JTable();
+        JTable personneTable = new JTable();
         tableScrollPane.setViewportView(personneTable);
 
         var chartPanel = new JPanel();
