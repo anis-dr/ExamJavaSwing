@@ -17,9 +17,16 @@ public class MyEvents implements ActionListener {
         if (e.getSource() == mf.getAjouterButton()) {
             var nom = mf.getNomTextField().getText();
             var genre = mf.getGenreButtonGroup().getSelection().getActionCommand();
+
+            if (nom.isEmpty()) {
+                JOptionPane.showMessageDialog(mf, "Veuillez entrer un nom", "Erreur", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             var personne = new Personne(nom, genre);
             try {
                 var change = MyDatabase.getInstance().ajouter(personne);
+                mf.getNomTextField().setText("");
                 System.out.println("Ajout de " + personne + " dans la base de données réussi");
                 System.out.println("Nombre de changements : " + change);
             } catch (SQLException ex) {

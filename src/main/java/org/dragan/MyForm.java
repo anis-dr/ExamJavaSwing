@@ -5,8 +5,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Locale;
 
 public class MyForm extends JFrame {
@@ -23,14 +21,18 @@ public class MyForm extends JFrame {
     public MyForm() {
         super("Examen");
 
-
         // Lambda
         listeButton.addActionListener(e -> {
-            var listeFrame = new MyList();
-            listeFrame.setContentPane(new MyList().$$$getRootComponent$$$());
+            var listeFrame = MyList.getInstance();
+            if (listeFrame.isVisible()) {
+                listeFrame.toFront();
+                return;
+            }
+            listeFrame.setContentPane(listeFrame.getRootComponent());
             listeFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             listeFrame.setLocationRelativeTo(null);
             listeFrame.setSize(new Dimension(800, 600));
+            listeFrame.setResizable(false);
             listeFrame.setVisible(true);
         });
 

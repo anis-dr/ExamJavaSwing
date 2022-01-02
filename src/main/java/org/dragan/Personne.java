@@ -1,5 +1,7 @@
 package org.dragan;
 
+import java.util.Objects;
+
 public class Personne {
     private Integer id;
     private String nom;
@@ -14,6 +16,19 @@ public class Personne {
     public Personne(String nom, String genre) {
         this.nom = nom;
         this.genre = genre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personne personne = (Personne) o;
+        return Objects.equals(id, personne.id) && Objects.equals(nom, personne.nom) && Objects.equals(genre, personne.genre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, genre);
     }
 
     @Override
