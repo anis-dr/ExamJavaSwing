@@ -19,8 +19,9 @@ public class MyEvents implements ActionListener {
             var genre = mf.getGenreButtonGroup().getSelection().getActionCommand();
             var personne = new Personne(nom, genre);
             try {
-                MyDatabase.getInstance().ajouter(personne);
-                System.out.println("Ajout de " + personne.toString() + " dans la base de données réussi");
+                var change = MyDatabase.getInstance().ajouter(personne);
+                System.out.println("Ajout de " + personne + " dans la base de données réussi");
+                System.out.println("Nombre de changements : " + change);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(
                         mf,

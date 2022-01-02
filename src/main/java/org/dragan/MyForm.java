@@ -21,15 +21,17 @@ public class MyForm extends JFrame {
     }
 
     public MyForm() {
-        super("Exam App");
+        super("Examen");
 
 
         // Lambda
-        listeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Liste");
-            }
+        listeButton.addActionListener(e -> {
+            var listeFrame = new MyList();
+            listeFrame.setContentPane(new MyList().$$$getRootComponent$$$());
+            listeFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            listeFrame.setLocationRelativeTo(null);
+            listeFrame.setSize(new Dimension(800, 600));
+            listeFrame.setVisible(true);
         });
 
         // External Class
