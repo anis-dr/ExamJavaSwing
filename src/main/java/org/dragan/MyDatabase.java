@@ -37,7 +37,7 @@ public class MyDatabase {
 
     public Connection connection() throws SQLException {
         Connection conn = DriverManager.getConnection(url, user, password);
-        System.out.println("Connected to the PostgreSQL server successfully.");
+        System.out.println("Connected to the Postgres server successfully.");
 
         return conn;
     }
