@@ -4,15 +4,15 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultPersonneTableModel extends AbstractTableModel {
+public class PersonneTableModel extends AbstractTableModel {
 
     private final List<Personne> items;
 
-    public DefaultPersonneTableModel() {
+    public PersonneTableModel() {
         items = new ArrayList<>();
     }
 
-    public DefaultPersonneTableModel(List<Personne> items) {
+    public PersonneTableModel(List<Personne> items) {
         this.items = items;
     }
 
@@ -49,15 +49,12 @@ public class DefaultPersonneTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        switch (column) {
-            case 0:
-                return "Id";
-            case 1:
-                return "Nom";
-            case 2:
-                return "Genre";
-        }
-        return null;
+        return switch (column) {
+            case 0 -> "Id";
+            case 1 -> "Nom";
+            case 2 -> "Genre";
+            default -> null;
+        };
     }
 
     @Override

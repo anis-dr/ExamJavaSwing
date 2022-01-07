@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class MyList extends JFrame {
     private static volatile MyList instance;
     private MyDatabase mdb;
-    private DefaultPersonneTableModel model;
+    private PersonneTableModel model;
     private JPanel mainPanel;
     private Graphics2D graph;
 
@@ -49,7 +49,7 @@ public class MyList extends JFrame {
         }
     }
 
-    public DefaultPersonneTableModel getModel() {
+    public PersonneTableModel getModel() {
         return model;
     }
 
@@ -78,7 +78,7 @@ public class MyList extends JFrame {
         chartPanel.setBackground(Color.BLACK);
         mainPanel.add(chartPanel, BorderLayout.SOUTH);
 
-        model = new DefaultPersonneTableModel();
+        model = new PersonneTableModel();
         personneTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         personneTable.setModel(model);
         personneTable.setAutoscrolls(true);

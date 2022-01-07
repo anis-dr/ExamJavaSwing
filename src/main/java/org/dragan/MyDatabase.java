@@ -5,7 +5,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MyDatabase {
     private static volatile MyDatabase instance;
@@ -68,7 +67,7 @@ public class MyDatabase {
         return statement.executeUpdate();
     }
 
-    public void remplirTableau(DefaultPersonneTableModel model) throws SQLException {
+    public void remplirTableau(PersonneTableModel model) throws SQLException {
         var instance = MyDatabase.getInstance();
         var conn = instance.getConnection();
 
