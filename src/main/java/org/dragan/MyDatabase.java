@@ -71,7 +71,7 @@ public class MyDatabase {
         var instance = MyDatabase.getInstance();
         var conn = instance.getConnection();
 
-        String stm = "SELECT * FROM personnes";
+        String stm = "SELECT * FROM public.personnes";
         var statement = conn.prepareStatement(stm);
         var rs = statement.executeQuery();
 
